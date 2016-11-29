@@ -1,10 +1,12 @@
 brew install pyenv-virtualenv
-cat >>~/.zshrc.local <<'EOT'
+setup_command=$(cat <<'EOT'
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 EOT
-exec $SHELL
+)
+echo $setup_command >> ~/.zshrc.local
+$setup_command
 pyenv install 3.5.0
 pyenv global 3.5.0
