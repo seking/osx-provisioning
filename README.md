@@ -1,14 +1,20 @@
 # osx-provisioning
 
-## Setup XCode
+### Initialize
 
 ```
-xcode-select --install
+initialize.sh
 ```
 
 
-## Setup Python
+### Setup Python
 
 ```
 setup_python.sh
+```
+
+### Ansible
+```
+pip install -r requirements.txt
+ansible-playbook site.yml -vvvv --ask-become-pass
 ```
